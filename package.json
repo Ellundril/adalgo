@@ -1,0 +1,20 @@
+{
+  "name": "adalgo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Projet d'entraînement algorithmique — Ada Tech School",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "ch01": "node --experimental-vm-modules node_modules/jest/bin/jest.js 01-conditions",
+    "ch02": "node --experimental-vm-modules node_modules/jest/bin/jest.js 02-boucles",
+    "ch03": "node --experimental-vm-modules node_modules/jest/bin/jest.js 03-tableaux",
+    "ch04": "node --experimental-vm-modules node_modules/jest/bin/jest.js 04-chaines",
+    "ch05": "node --experimental-vm-modules node_modules/jest/bin/jest.js 05-objets",
+    "ch06": "node --experimental-vm-modules node_modules/jest/bin/jest.js 06-imbriques",
+    "ch07": "node --experimental-vm-modules node_modules/jest/bin/jest.js 07-tri-recherche"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
