@@ -9,8 +9,14 @@
  * @example maximum([3, 7, 2, 9, 1]) → 9
  */
 export const maximum = (tableau) => {
-  // à compléter
-}
+  let max = tableau[0];
+  tableau.forEach((nombre) => {
+    if (nombre > max) {
+      max = nombre;
+    }
+  });
+  return max;
+};
 
 /**
  * Retourne la plus petite valeur d'un tableau de nombres. Sans Math.min().
@@ -19,8 +25,14 @@ export const maximum = (tableau) => {
  * @example minimum([3, 7, 2, 9, 1]) → 1
  */
 export const minimum = (tableau) => {
-  // à compléter
-}
+  let min = tableau[0];
+  tableau.forEach((nombre) => {
+    if (nombre < min) {
+      min = nombre;
+    }
+  });
+  return min;
+};
 
 /**
  * Retourne la moyenne des valeurs. Retourne null si le tableau est vide.
@@ -29,8 +41,16 @@ export const minimum = (tableau) => {
  * @example moyenne([2, 4, 6]) → 4 / moyenne([]) → null
  */
 export const moyenne = (tableau) => {
-  // à compléter
-}
+  let somme = 0;
+  if (tableau.length !== 0) {
+    tableau.forEach((nombre) => {
+      somme += nombre;
+    });
+    return somme / tableau.length;
+  } else {
+    return null;
+  }
+};
 
 /**
  * Retourne true si la valeur est présente dans le tableau, false sinon.
@@ -41,8 +61,13 @@ export const moyenne = (tableau) => {
  * @example contient([1, 2, 3], 2) → true / contient([1, 2, 3], 5) → false
  */
 export const contient = (tableau, valeur) => {
-  // à compléter
-}
+  for (let i = 0; i < tableau.length; i++) {
+    if (tableau[i] === valeur) {
+      return true;
+    }
+  }
+  return false;
+};
 
 /**
  * Retourne le nombre de fois que la valeur apparaît dans le tableau.
@@ -52,8 +77,14 @@ export const contient = (tableau, valeur) => {
  * @example compter([1, 2, 2, 3, 2], 2) → 3
  */
 export const compter = (tableau, valeur) => {
-  // à compléter
-}
+  let compteur = 0;
+  for (let i = 0; i < tableau.length; i++) {
+    if (tableau[i] === valeur) {
+      compteur++;
+    }
+  }
+  return compteur;
+};
 
 /**
  * [FACULTATIF]
@@ -64,8 +95,12 @@ export const compter = (tableau, valeur) => {
  * @example inverser([1, 2, 3]) → [3, 2, 1]
  */
 export const inverser = (tableau) => {
-  // à compléter
-}
+  let tabInv = [];
+  for (let i = 0; i < tableau.length; i++) {
+    tabInv.push(tableau[tableau.length - 1 - i]);
+  }
+  return tabInv;
+};
 
 /**
  * [FACULTATIF]
@@ -75,5 +110,15 @@ export const inverser = (tableau) => {
  * @example sansDoublons([1, 2, 2, 3, 1]) → [1, 2, 3]
  */
 export const sansDoublons = (tableau) => {
-  // à compléter
-}
+  let tabTri = [];
+  let dejaVus = {};
+  for (let i = 0; i < tableau.length; i++) {
+    if (dejaVus[tableau[i]]) {
+      continue;
+    } else {
+      dejaVus[tableau[i]] = true;
+      tabTri.push(tableau[i]);
+    }
+  }
+  return tabTri;
+};
