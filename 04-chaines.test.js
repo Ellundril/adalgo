@@ -53,7 +53,16 @@ describe("estPalindrome", () => {
 
 // Cas à couvrir : chaîne avec voyelles, chaîne sans voyelle.
 describe("compterVoyelles", () => {
-  it.todo("à compléter");
+  it("fonctionne avec une chaine contenant des voyelles", () => {
+    const chaine = "bonjour";
+    const result = compterVoyelles(chaine);
+    expect(result).toBe(3);
+  });
+  it("fonctionne avec une chaine contenant des voyelles", () => {
+    const chaine = "pfft";
+    const result = compterVoyelles(chaine);
+    expect(result).toBe(0);
+  });
 });
 
 // [FACULTATIF] Cas à couvrir : chaîne mixte (boNJOUR → Bonjour), chaîne déjà correcte.
