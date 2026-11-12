@@ -59,7 +59,11 @@ export const compterVoyelles = (chaine) => {
  * @example capitaliser("boNJOUR") → "Bonjour"
  */
 export const capitaliser = (chaine) => {
-  // à compléter
+  let chaineCap = chaine[0].toUpperCase();
+  for (let i = 1; i < chaine.length; i++) {
+    chaineCap += chaine[i].toLowerCase();
+  }
+  return chaineCap;
 };
 
 /**

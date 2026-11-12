@@ -56,3 +56,18 @@ DEBUT compterVoyelle(chaine)
 FIN
 
 ```
+
+## Exercice 4 - capitaliser(chaine)
+
+VARIABLES
+chaine: CHAINE DE CARACTERES
+chaineCap: CHAINE DE CARACTERES
+
+```
+DEBUT capitaliser(chaine)
+    chaineCap <- Convertir en capitale (chaine[0])
+        POUR i<-1 à longueur de chaine - 1
+            chaineCap <- chaineCap + convertir en minuscule(chaine[i])
+        FIN POUR
+    RETOURNER chaineCap
+```
