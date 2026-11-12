@@ -8,7 +8,7 @@
  * @returns {string}
  * @example inverserChaine("bonjour") → "ruojnob"
  */
-console.time("methode 1");
+
 export const inverserChaine = (chaine) => {
   let chaineInv = "";
   for (let i = 0; i < chaine.length; i++) {
@@ -16,16 +16,11 @@ export const inverserChaine = (chaine) => {
   }
   return chaineInv;
 };
-console.log(inverserChaine("bonjour"));
-console.timeEnd("methode 1");
-
-console.time("methode 2");
-const inverserChaine2 = (chaine) => {
+// Autre solution : passer par les méthodes de tableaux
+/* const inverserChaine2 = (chaine) => {
   return chaine.split("").reverse().join("");
-};
+}; */
 
-console.log(inverserChaine2("bonjour"));
-console.timeEnd("methode 2");
 /**
  * Retourne true si la chaîne se lit de la même façon dans les deux sens.
  * @param {string} chaine
@@ -33,9 +28,9 @@ console.timeEnd("methode 2");
  * @example estPalindrome("kayak") → true / estPalindrome("bonjour") → false
  */
 export const estPalindrome = (chaine) => {
-  // à compléter
+  const chaineInv = inverserChaine(chaine);
+  return chaine === chaineInv;
 };
-
 /**
  * Retourne le nombre de voyelles dans la chaîne (a, e, i, o, u, y).
  * @param {string} chaine

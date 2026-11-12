@@ -34,7 +34,21 @@ describe("inverserChaine", () => {
 
 // Cas à couvrir : palindrome, non-palindrome, un seul caractère.
 describe("estPalindrome", () => {
-  it.todo("à compléter");
+  it("retourne true si la chaine est un palindrome", () => {
+    const chaine = "kayak";
+    const result = estPalindrome(chaine);
+    expect(result).toBe(true);
+  });
+  it("retourne false si la chaine n'est pas un palindrome", () => {
+    const chaine = "bonjour";
+    const result = estPalindrome(chaine);
+    expect(result).toBe(false);
+  });
+  it("retourne true si la chaine comporte un seul caractère", () => {
+    const chaine = "k";
+    const result = estPalindrome(chaine);
+    expect(result).toBe(true);
+  });
 });
 
 // Cas à couvrir : chaîne avec voyelles, chaîne sans voyelle.
