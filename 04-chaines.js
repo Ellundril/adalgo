@@ -8,10 +8,24 @@
  * @returns {string}
  * @example inverserChaine("bonjour") → "ruojnob"
  */
+console.time("methode 1");
 export const inverserChaine = (chaine) => {
-  // à compléter
-}
+  let chaineInv = "";
+  for (let i = 0; i < chaine.length; i++) {
+    chaineInv += chaine[chaine.length - 1 - i];
+  }
+  return chaineInv;
+};
+console.log(inverserChaine("bonjour"));
+console.timeEnd("methode 1");
 
+console.time("methode 2");
+const inverserChaine2 = (chaine) => {
+  return chaine.split("").reverse().join("");
+};
+
+console.log(inverserChaine2("bonjour"));
+console.timeEnd("methode 2");
 /**
  * Retourne true si la chaîne se lit de la même façon dans les deux sens.
  * @param {string} chaine
@@ -20,7 +34,7 @@ export const inverserChaine = (chaine) => {
  */
 export const estPalindrome = (chaine) => {
   // à compléter
-}
+};
 
 /**
  * Retourne le nombre de voyelles dans la chaîne (a, e, i, o, u, y).
@@ -30,7 +44,7 @@ export const estPalindrome = (chaine) => {
  */
 export const compterVoyelles = (chaine) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -41,7 +55,7 @@ export const compterVoyelles = (chaine) => {
  */
 export const capitaliser = (chaine) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -56,7 +70,7 @@ export const capitaliser = (chaine) => {
  */
 export const tronquer = (chaine, longueur) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -67,7 +81,7 @@ export const tronquer = (chaine, longueur) => {
  */
 export const toCamelCase = (str) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -78,7 +92,7 @@ export const toCamelCase = (str) => {
  */
 export const toSnakeCase = (str) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -96,7 +110,7 @@ export const toSnakeCase = (str) => {
  */
 export const validerMotDePasse = (mdp) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -112,4 +126,4 @@ export const validerMotDePasse = (mdp) => {
  */
 export const analyserTexte = (texte) => {
   // à compléter
-}
+};
