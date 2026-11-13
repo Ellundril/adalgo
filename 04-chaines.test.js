@@ -81,7 +81,18 @@ describe("capitaliser", () => {
 
 // [FACULTATIF] Cas à couvrir : chaîne trop longue, chaîne assez courte.
 describe("tronquer", () => {
-  it.todo("à compléter");
+  it("tronque une chaine courte et ajoute des points de suspension", () => {
+    const chaine = "bonjour tout le monde";
+    const longueur = 7;
+    const result = tronquer(chaine, longueur);
+    expect(result).toBe("bonjour...");
+  });
+  it("tronque une chaine courte et ajoute des points de suspension", () => {
+    const chaine = "coucou";
+    const longueur = 10;
+    const result = tronquer(chaine, longueur);
+    expect(result).toBe("coucou");
+  });
 });
 
 // [FACULTATIF] Cas à couvrir : plusieurs mots, deux mots.

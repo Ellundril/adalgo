@@ -51,6 +51,7 @@ DEBUT compterVoyelle(chaine)
                 nbVoyelles <- nbVoyelles + 1
                 CONTINUER
             FIN_SI
+        FIN POUR
     FIN POUR
     RETOURNER nbVoyelles
 FIN
@@ -70,4 +71,26 @@ DEBUT capitaliser(chaine)
             chaineCap <- chaineCap + convertir en minuscule(chaine[i])
         FIN POUR
     RETOURNER chaineCap
+FIN
+```
+
+## Exercice 5 - tronquer(chaine, longueur)
+
+VARIABLES
+chaine: CHAINE DE CARACTERES
+chaineTronquee: CHAINE DE CARACTERES
+
+```
+DEBUT tronquer(chaine, longueur)
+    SI longueur de chaine > longeur ALORS
+        chaineTronquee <- ""
+        POUR i <- 0 à longueur-1
+            chaineTronque <- chaineTronque + chaine[i]
+        FIN POUR
+        chaineTronque <- chaineTronque + "..."
+        RETOURNER chaineTronquee
+    SINON
+        RETOURNER chaine
+    FIN_SI
+FIN
 ```
