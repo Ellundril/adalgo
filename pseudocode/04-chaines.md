@@ -178,23 +178,30 @@ FIN
 VARIABLES
 lettres: ENTIER
 mots: ENTIER
-phrase: ENTIER
+phrases: ENTIER
 texte: CHAINE
+objet: OBJET
 
 ```
 DEBUT analyserTexte(texte)
     lettres <- 0
     mots <- 0
-    chaine <- 0
+    phrases <- 0
     POUR i <-0 à longueur de texte -1
         SI texte[i] == " " ALORS
-            mots <- mot + 1
+            mots <- mots + 1
         SINON SI texte[i] == "." || texte[i] == "!" || texte[i] == "?" ALORS
-            phrase <- phrase +1
+            phrases <- phrases +1
         SINON
-            lettres <- lettre + 1
+            lettres <- lettres + 1
         FIN_SI
     FIN POUR
-    RETOURNER {lettres, mots, phrase}
+    SI mots != 0 ALORS
+        mots <- mots + 1
+    FIN_SI
+    objet.lettres <- lettres
+    objet.mots <- mots
+    objet. phrases <- phrases
+    RETOURNER objet
 FIN
 ```
