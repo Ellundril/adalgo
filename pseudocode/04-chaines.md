@@ -106,15 +106,11 @@ index: ENTIER
 ```
 DEBUT toCamelCase(chaine)
     index <- 0c
-    chaineCamel <- ""
-    TANT QUE index < longueur de chaine -1 FAIRE
-        TANT QUE chaine[index] != "_" FAIRE
-            chaineCamel <- chaineCamel + chaine[index]
-            index ++
-        FIN TANT QUE
-        index++
-        chaineCamel <- chaine[index] convertie en majuscule
-        index++
-    FIN TANT QUE
+    tabMots <- chaine transformée en tableau séparateur "_"
+    chaineCamel <- tabMots[0]
+    POUR i <- 1 à longueur de tabMots
+        chaineCamel <- chaineCamel + capitaliser(tabMots[i])
+    FIN POUR
+    RETOURNER chaineCamel
 FIN
 ```
