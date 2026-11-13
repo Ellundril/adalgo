@@ -97,12 +97,12 @@ describe("tronquer", () => {
 
 // [FACULTATIF] Cas à couvrir : plusieurs mots, deux mots.
 describe("toCamelCase", () => {
-  it("convertit en camelCase une chaine de plusieurs mots", () => {
+  it("convertit en camelCase une chaine snake_case de plusieurs mots", () => {
     const chaine = "mon_nom_de_variable";
     const result = toCamelCase(chaine);
     expect(result).toBe("monNomDeVariable");
   });
-  it("convertit en camelCase une chaine de plusieurs mots", () => {
+  it("convertit en camelCase une chaine snake_case de deux mots", () => {
     const chaine = "mon_nom";
     const result = toCamelCase(chaine);
     expect(result).toBe("monNom");
@@ -111,16 +111,53 @@ describe("toCamelCase", () => {
 
 // [FACULTATIF] Même pattern inverse.
 describe("toSnakeCase", () => {
-  it.todo("à compléter");
+  it("convertit en snake_case une chaine camelCase de plusieurs mots", () => {
+    const chaine = "monNomDeVariable";
+    const result = toSnakeCase(chaine);
+    expect(result).toBe("mon_nom_de_variable");
+  });
+  it("convertit en snake_case une chaine camelCase de deux mots", () => {
+    const chaine = "monNom";
+    const result = toSnakeCase(chaine);
+    expect(result).toBe("mon_nom");
+  });
 });
 
 // [FACULTATIF] Cas à couvrir : valide, trop court, pas de chiffre, pas de majuscule.
 describe("validerMotDePasse", () => {
-  it.todo("à compléter");
+  it("Retourne true si le mot de passe est valide", () => {
+    const mdp = "el3H1@f";
+    const result = validerMotDePasse(mdp);
+    expect(result).toBe(true);
+  });
+  it("Retourne false si le mot de passe est trop court", () => {
+    const mdp = "l#H1@";
+    const result = validerMotDePasse(mdp);
+    expect(result).toBe(false);
+  });
+  it("Retourne false si le mot de passe ne comporte pas de chiffre", () => {
+    const mdp = "fwjifewH#";
+    const result = validerMotDePasse(mdp);
+    expect(result).toBe(false);
+  });
+  it("Retourne false si le mot de passe ne comporte pas de majuscule", () => {
+    const mdp = "fwjifew5#";
+    const result = validerMotDePasse(mdp);
+    expect(result).toBe(false);
+  });
 });
 
 // [FACULTATIF] Cas à couvrir : texte simple, texte vide.
 // Rappel : le résultat est un objet { lettres, mots, phrases } — utilise .toEqual().
 describe("analyserTexte", () => {
-  it.todo("à compléter");
+  it("fonctionne pour un texte simple", () => {
+    const texte = "Bonjour monde.";
+    const result = analyserTexte(texte);
+    expect(result).toEqual({ lettres: 12, mots: 2, phrases: 1 });
+  });
+  it("fonctionne pour un texte vide", () => {
+    const texte = "";
+    const result = analyserTexte(texte);
+    expect(result).toEqual({ lettres: 0, mots: 0, phrases: 0 });
+  });
 });

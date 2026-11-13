@@ -112,7 +112,16 @@ export const toCamelCase = (str) => {
  * @example toSnakeCase("monNomDeVariable") → "mon_nom_de_variable"
  */
 export const toSnakeCase = (str) => {
-  // à compléter
+  let strSnake = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      strSnake += "_";
+      strSnake += str[i].toLowerCase();
+    } else {
+      strSnake += str[i];
+    }
+  }
+  return strSnake;
 };
 
 /**
@@ -130,7 +139,43 @@ export const toSnakeCase = (str) => {
  * @example validerMotDePasse("l#H1@") → false  (trop court)
  */
 export const validerMotDePasse = (mdp) => {
-  // à compléter
+  const caracteresSpeciaux = ["$", "#", "@"];
+  let nbCaracteres = false;
+  let minuscules = false;
+  let majuscules = false;
+  let chiffres = false;
+  let speciaux = false;
+  if (mdp.length <= 12 && mdp.length >= 6) {
+    nbCaracteres = true;
+  } else {
+    return false;
+  }
+  for (let i = 0; i < mdp.length; i++) {
+    if (isNaN(mdp[i])) {
+      switch (mdp[i]) {
+        case "$":
+          speciaux = true;
+          break;
+        case "#":
+          speciaux = true;
+          break;
+        case "@":
+          speciaux = true;
+          break;
+        case `${mdp[i].toLowerCase()}`:
+          minuscules = true;
+          break;
+        case `${mdp[i].toUpperCase()}`:
+          majuscules = true;
+          break;
+        default:
+          break;
+      }
+    } else {
+      chiffres = true;
+    }
+  }
+  return nbCaracteres && minuscules && majuscules && speciaux && chiffres;
 };
 
 /**
@@ -146,5 +191,29 @@ export const validerMotDePasse = (mdp) => {
  * @example analyserTexte("Bonjour monde.") → { lettres: 12, mots: 2, phrases: 1 }
  */
 export const analyserTexte = (texte) => {
-  // à compléter
+  let lettres = 0;
+  let mots = 0;
+  let phrases = 0;
+  for (let i = 0; i < texte.length; i++) {
+    switch (texte[i]) {
+      case " ":
+        mots++;
+        break;
+      case ".":
+        phrases++;
+        break;
+      case "!":
+        phrases++;
+        break;
+      case "?":
+        phrases++;
+        break;
+      default:
+        lettres++;
+    }
+  }
+  if (mots !== 0) {
+    mots++;
+  }
+  return { lettres: lettres, mots: mots, phrases: phrases };
 };
