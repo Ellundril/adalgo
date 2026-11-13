@@ -94,3 +94,27 @@ DEBUT tronquer(chaine, longueur)
     FIN_SI
 FIN
 ```
+
+# Exercice 6 - toCamelCase(chaine)
+
+VARIABLES
+chaine: CHAINE DE CARACTERES en snake_case
+chaineCamel: CHAINE DE CARACTERES en camelCase
+tabMots: TABLEAU de chaines
+index: ENTIER
+
+```
+DEBUT toCamelCase(chaine)
+    index <- 0c
+    chaineCamel <- ""
+    TANT QUE index < longueur de chaine -1 FAIRE
+        TANT QUE chaine[index] != "_" FAIRE
+            chaineCamel <- chaineCamel + chaine[index]
+            index ++
+        FIN TANT QUE
+        index++
+        chaineCamel <- chaine[index] convertie en majuscule
+        index++
+    FIN TANT QUE
+FIN
+```

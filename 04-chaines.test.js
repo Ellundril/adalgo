@@ -97,7 +97,16 @@ describe("tronquer", () => {
 
 // [FACULTATIF] Cas à couvrir : plusieurs mots, deux mots.
 describe("toCamelCase", () => {
-  it.todo("à compléter");
+  it("convertit en camelCase une chaine de plusieurs mots", () => {
+    const chaine = "mon_nom_de_variable";
+    const result = toCamelCase(chaine);
+    expect(result).toBe("monNomDeVariable");
+  });
+  it("convertit en camelCase une chaine de plusieurs mots", () => {
+    const chaine = "mon_nom";
+    const result = toCamelCase(chaine);
+    expect(result).toBe("monNom");
+  });
 });
 
 // [FACULTATIF] Même pattern inverse.

@@ -95,7 +95,13 @@ export const tronquer = (chaine, longueur) => {
  * @example toCamelCase("mon_nom_de_variable") → "monNomDeVariable"
  */
 export const toCamelCase = (str) => {
-  // à compléter
+  let chaineCamel = "";
+  const tabMots = str.split("_");
+  chaineCamel += tabMots[0];
+  for (let i = 1; i < tabMots.length; i++) {
+    chaineCamel += capitaliser(tabMots[i]);
+  }
+  return chaineCamel;
 };
 
 /**
