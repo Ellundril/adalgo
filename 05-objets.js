@@ -9,8 +9,8 @@
  * @example fullName({ prenom: "Ada", nom: "Lovelace" }) → "Ada Lovelace"
  */
 export const fullName = (personne) => {
-  // à compléter
-}
+  return `${personne.prenom} ${personne.nom}`;
+};
 
 /**
  * Reçoit un tableau de { nom, age } et retourne ceux dont l'âge est >= ageMin.
@@ -21,8 +21,14 @@ export const fullName = (personne) => {
  *          → [{ nom: "Ada", age: 28 }]
  */
 export const filtrerParAge = (personnes, ageMin) => {
-  // à compléter
-}
+  let ageOk = [];
+  for (const personne of personnes) {
+    if (personne.age >= ageMin) {
+      ageOk.push(personne);
+    }
+  }
+  return ageOk;
+};
 
 /**
  * Reçoit un tableau de { nom, ... } et retourne le tableau trié par ordre alphabétique du nom.
@@ -32,9 +38,27 @@ export const filtrerParAge = (personnes, ageMin) => {
  *          → [{ nom: "Hopper" }, { nom: "Lovelace" }, { nom: "Turing" }]
  */
 export const trierParNom = (personnes) => {
-  // à compléter
-}
+  let personneAComparer = {};
+  let index = 0;
+  let temp;
+  for (let j = 0; j < personnes.length; j++) {
+    personneAComparer = personnes[j];
+    index = j;
+    for (let i = j + 1; i < personnes.length; i++) {
+      if (personneAComparer.nom > personnes[i].nom) {
+        personneAComparer = personnes[i];
+        index = i;
+      }
+    }
+    temp = personnes[j];
+    personnes[j] = personneAComparer;
+    personnes[index] = temp;
+    console.log(personnes);
+  }
+  return personnes;
+};
 
+trierParNom([{ nom: "Turing" }, { nom: "Lovelace" }, { nom: "Hopper" }]);
 /**
  * [FACULTATIF]
  * [FACULTATIF]
@@ -50,7 +74,7 @@ export const trierParNom = (personnes) => {
  */
 export const grouperParVille = (personnes) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -63,7 +87,7 @@ export const grouperParVille = (personnes) => {
  */
 export const statistiques = (notes) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -74,7 +98,7 @@ export const statistiques = (notes) => {
  */
 export const prixTotal = (cadeaux) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -85,4 +109,4 @@ export const prixTotal = (cadeaux) => {
  */
 export const plusCher = (cadeaux) => {
   // à compléter
-}
+};
