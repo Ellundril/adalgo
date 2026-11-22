@@ -73,7 +73,19 @@ trierParNom([{ nom: "Turing" }, { nom: "Lovelace" }, { nom: "Hopper" }]);
  * ]) → { Paris: ["Ada", "Grace"], Lyon: ["Alan"] }
  */
 export const grouperParVille = (personnes) => {
-  // à compléter
+  let villes = {};
+  let cle = "";
+  let listeCle = [];
+  for (const personne of personnes) {
+    cle = personne.ville;
+    if (!listeCle.includes(cle)) {
+      listeCle.push(cle);
+      villes[cle] = [personne.nom];
+    } else {
+      villes[cle].push(personne.nom);
+    }
+  }
+  return villes;
 };
 
 /**
@@ -86,7 +98,24 @@ export const grouperParVille = (personnes) => {
  *          → { moyenne: 15, max: 18, min: 12 }
  */
 export const statistiques = (notes) => {
-  // à compléter
+  if (notes.length !== 0) {
+    let somme = 0;
+    let max = notes[0].note;
+    let min = notes[0].note;
+    for (const eleve of notes) {
+      somme += eleve.note;
+      if (eleve.note < min) {
+        min = eleve.note;
+      }
+      if (eleve.note > max) {
+        max = eleve.note;
+      }
+    }
+    const moyenne = somme / notes.length;
+    return { moyenne: moyenne, max: max, min: min };
+  } else {
+    return "Pas de notes pas de stats !";
+  }
 };
 
 /**
@@ -97,7 +126,11 @@ export const statistiques = (notes) => {
  * @example prixTotal([{ nom: "livre", prix: 15 }, { nom: "jeu", prix: 40 }]) → 55
  */
 export const prixTotal = (cadeaux) => {
-  // à compléter
+  let prixFinal = 0;
+  for (const cadeau of cadeaux) {
+    prixFinal += cadeau.prix;
+  }
+  return prixFinal;
 };
 
 /**
@@ -108,5 +141,11 @@ export const prixTotal = (cadeaux) => {
  * @example plusCher([{ nom: "livre", prix: 15 }, { nom: "jeu", prix: 40 }]) → "jeu"
  */
 export const plusCher = (cadeaux) => {
-  // à compléter
+  let cadeauPlusCher = cadeaux[0];
+  for (let i = 1; i < cadeaux.length; i++) {
+    if (cadeaux[i].prix > cadeauPlusCher.prix) {
+      cadeauPlusCher = cadeaux[i];
+    }
+  }
+  return cadeauPlusCher.nom;
 };

@@ -67,20 +67,54 @@ describe("trierParNom", () => {
 
 // [FACULTATIF]
 describe("grouperParVille", () => {
-  it.todo("à compléter");
+  it("regroupe bien dans la même ville si plusieurs personnes viennent de la même ville", () => {
+    const personnes = [
+      { nom: "Ada", ville: "Paris" },
+      { nom: "Alan", ville: "Lyon" },
+      { nom: "Grace", ville: "Paris" },
+    ];
+    const result = grouperParVille(personnes);
+    expect(result).toEqual({ Paris: ["Ada", "Grace"], Lyon: ["Alan"] });
+  });
 });
 
 // [FACULTATIF]
 describe("statistiques", () => {
-  it.todo("à compléter");
+  it("retourne la moyenne des notes, le min et le max", () => {
+    const notes = [
+      { nom: "Ada", note: 18 },
+      { nom: "Alan", note: 12 },
+    ];
+    const result = statistiques(notes);
+    expect(result).toEqual({ moyenne: 15, max: 18, min: 12 });
+  });
+  it("retourne pas de notes si le tableau est vide", () => {
+    const notes = [];
+    const result = statistiques(notes);
+    expect(result).toBe("Pas de notes pas de stats !");
+  });
 });
 
 // [FACULTATIF]
 describe("prixTotal", () => {
-  it.todo("à compléter");
+  it("retourne le prix total des cadeaux", () => {
+    const cadeaux = [
+      { nom: "livre", prix: 15 },
+      { nom: "jeu", prix: 40 },
+    ];
+    const result = prixTotal(cadeaux);
+    expect(result).toBe(55);
+  });
 });
 
 // [FACULTATIF]
 describe("plusCher", () => {
-  it.todo("à compléter");
+  it("retourne le nom du cadeau le plus cher", () => {
+    const cadeaux = [
+      { nom: "livre", prix: 15 },
+      { nom: "jeu", prix: 40 },
+    ];
+    const result = plusCher(cadeaux);
+    expect(result).toBe("jeu");
+  });
 });
