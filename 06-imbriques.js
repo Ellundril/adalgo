@@ -33,9 +33,15 @@ export const tousLesPrenoms = (personnes) => {
  * ]) → [{ nom: "Ada", total: 45 }, { nom: "Grace", total: 24 }]
  */
 export const totalPoints = (etudiantes) => {
-  // à compléter
+  const total = etudiantes.map((etudiante) => {
+    let somme = 0;
+    etudiante.notes.forEach((note) => {
+      somme += note;
+    });
+    return { nom: etudiante.nom, total: somme };
+  });
+  return total;
 };
-
 /**
  * Reçoit un tableau de { nom, competences } où competences est un tableau de strings.
  * Retourne les noms des étudiantes qui ont la compétence demandée.

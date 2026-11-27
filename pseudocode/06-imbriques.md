@@ -4,11 +4,11 @@
 
 VARIABLES
 personnes = TABLEAU d'OBJETS{nom: CHAINE, prenoms: TABLEAU}
-prenoms: TABLEAU
+listePrenoms: TABLEAU
 
 ```
 DEBUT tousLesPrenoms(personnes)
-    prenoms <- []
+    listePrenoms <- []
     POUR i <- 0 à longueur de personnes - 1
         POUR j <- 0 à longueur de personnes[i] - 1
             prenoms <- prenoms + personnes[i].prenom[j]

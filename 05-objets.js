@@ -21,13 +21,7 @@ export const fullName = (personne) => {
  *          → [{ nom: "Ada", age: 28 }]
  */
 export const filtrerParAge = (personnes, ageMin) => {
-  let ageOk = [];
-  for (const personne of personnes) {
-    if (personne.age >= ageMin) {
-      ageOk.push(personne);
-    }
-  }
-  return ageOk;
+  return personnes.filter((personne) => personne.age >= ageMin);
 };
 
 /**
