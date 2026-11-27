@@ -82,7 +82,25 @@ export const aMaitriseCompetence = (etudiantes, competence) => {
  * ]) → ["Adapage"]
  */
 export const projetsEnRetard = (projets) => {
-  // à compléter
+  if (projets.length === 0) {
+    return projets;
+  }
+
+  let enRetard = [];
+  for (const projet of projets) {
+    for (const tache of projet.taches) {
+      if (!tache.terminee) {
+        enRetard.push(projet.nom);
+        break;
+      }
+    }
+  }
+
+  if (enRetard.length === 0) {
+    return "Pas de projets en retard";
+  } else {
+    return enRetard;
+  }
 };
 
 /**

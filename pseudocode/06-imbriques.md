@@ -79,7 +79,7 @@ DEBUT projetsEnRetard(projets)
         POUR j<- 0 à longueur de projets[i].taches
             SI projets[i].taches[j].terminee == false ALORS
                 enRetard <- enRetard + projets[i].name
-                RETOURNER
+                STOP
             FIN_SI
         FIN POUR
     FIN POUR
