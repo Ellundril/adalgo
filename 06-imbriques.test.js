@@ -35,11 +35,64 @@ describe("tousLesPrenoms", () => {
 });
 
 describe("totalPoints", () => {
-  it.todo("à compléter");
+  it("retourne un tableau d'objet avec le nom de chaque étudiante et son total de points", () => {
+    const etudiantes = [
+      { nom: "Ada", notes: [12, 15, 18] },
+      { nom: "Grace", notes: [10, 14] },
+    ];
+    const result = totalPoints(etudiantes);
+    expect(result).toEqual([
+      { nom: "Ada", total: 45 },
+      { nom: "Grace", total: 24 },
+    ]);
+  });
+  it("retourne un tableau vide si pas d'étudiante", () => {
+    const etudiantes = [];
+    const result = totalPoints(etudiantes);
+    expect(result).toEqual([]);
+  });
+  it("fonctionne si les étudiantes ont une seule note", () => {
+    const etudiantes = [
+      { nom: "Ada", notes: [12] },
+      { nom: "Grace", notes: [10] },
+    ];
+    const result = totalPoints(etudiantes);
+    expect(result).toEqual([
+      { nom: "Ada", total: 12 },
+      { nom: "Grace", total: 10 },
+    ]);
+  });
 });
 
 describe("aMaitriseCompetence", () => {
-  it.todo("à compléter");
+  it("retourne la liste des étudiantes qui maîtrisent la compétence demandée", () => {
+    const etudiantes = [
+      { nom: "Ada", competences: ["HTML", "CSS", "JS"] },
+      { nom: "Grace", competences: ["HTML", "Python"] },
+      { nom: "Mary", competences: ["HTML", "CSS", "Python"] },
+    ];
+    const competence = "CSS";
+    const result = aMaitriseCompetence(etudiantes, competence);
+    expect(result).toEqual(["Ada", "Mary"]);
+  });
+  it("retourne aucune étudiante ne possède la compétence si c'est le cas", () => {
+    const etudiantes = [
+      { nom: "Ada", competences: ["HTML", "CSS", "JS"] },
+      { nom: "Grace", competences: ["HTML", "Python"] },
+      { nom: "Mary", competences: ["HTML", "CSS", "Python"] },
+    ];
+    const competence = "PHP";
+    const result = aMaitriseCompetence(etudiantes, competence);
+    expect(result).toBe(
+      "Aucune étudiante ne possède la compétence " + competence,
+    );
+  });
+  it("retourne un tableau vide si pas d'étudiante", () => {
+    const etudiantes = [];
+    const competence = "PHP";
+    const result = aMaitriseCompetence(etudiantes, competence);
+    expect(result).toEqual([]);
+  });
 });
 
 describe("projetsEnRetard", () => {

@@ -17,3 +17,46 @@ DEBUT tousLesPrenoms(personnes)
     RETOURNER prenoms
 FIN
 ```
+
+## Exercice 2 - totalPoints(etudiantes)
+
+VARIABLES
+etudiantes = TABLEAU d'OBJETS{nom: CHAINE, notes: TABLEAU}
+resultat = TABLEAU d'OBJETS{nom: CHAINE, total: TABLEAU}
+somme: ENTIER
+
+```
+DEBUT totalPoints(etudiantes)
+    resultat <- 0
+    POUR i <- 0 à longueur de etudiantes - 1
+        somme <- 0
+        Pour j <- 0 à longueur de etudiantes[i].notes - 1
+            somme <- somme + etudiantes[i].note[j]
+        FIN POUR
+        resultat <- resultat + {nom: etudiantes[i].nom, total: somme}
+    FIN POUR
+    RETOURNER resultat
+FIN
+```
+
+## Exercice 3 - aMaitriseCompetence(etudiantes, competence)
+
+VARIABLES
+etudiantes = TABLEAU d'OBJETS{nom: CHAINE, competences: TABLEAU de chaines}
+competence = CHAINE
+etudiantesCompetentes: TABLEAU de CHAINES
+
+```
+DEBUT aMaitriseCompetence(etudiantes, competence)
+    etudiantesCompetentes <- []
+    POUR i <- 0 à longueur de etudiantes - 1
+        SI etudiantes[i].competences inclut competence ALORS
+            etudiantesCompetentes <- etudiantesCompetentes + etudiantes[i].nom
+        FIN_SI
+    FIN POUR
+    SI longueur de etudiantesCompetentes != 0 ALORS
+        RETOURNER etudiantesCompetentes
+    SINON
+        RETOURNER "Aucune étudiante ne possède la compétence " + competence
+FIN
+```
