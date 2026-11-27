@@ -86,6 +86,15 @@ describe("grouperParVille", () => {
     const result = grouperParVille(personnes);
     expect(result).toEqual({ Paris: ["Ada", "Grace"], Lyon: ["Alan"] });
   });
+  it("fonctionne avec une seule ville", () => {
+    const personnes = [
+      { nom: "Ada", ville: "Paris" },
+      { nom: "Alan", ville: "Paris" },
+      { nom: "Grace", ville: "Paris" },
+    ];
+    const result = grouperParVille(personnes);
+    expect(result).toEqual({ Paris: ["Ada", "Alan", "Grace"] });
+  });
 });
 
 // [FACULTATIF]

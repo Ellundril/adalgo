@@ -52,7 +52,6 @@ export const trierParNom = (personnes) => {
   return personnes;
 };
 
-trierParNom([{ nom: "Turing" }, { nom: "Lovelace" }, { nom: "Hopper" }]);
 /**
  * [FACULTATIF]
  * [FACULTATIF]
