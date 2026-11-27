@@ -120,5 +120,35 @@ export const projetsEnRetard = (projets) => {
  * ]) → { meilleure: "Ada", moinsBonne: "Grace", moyenneGenerale: 15 }
  */
 export const resumePromo = (etudiantes) => {
-  // à compléter
+  if (etudiantes.length === 0) {
+    return "Pas d'étudiantes";
+  }
+  let moyenneMin = { note: 20 };
+  let moyenneMax = { note: 0 };
+  let moyenneEtudiante = 0;
+  let sommeEtudiante = 0;
+  let somme = 0;
+
+  for (const etudiante of etudiantes) {
+    sommeEtudiante = 0;
+    for (const note of etudiante.notes) {
+      sommeEtudiante += note;
+    }
+    moyenneEtudiante = sommeEtudiante / etudiante.notes.length;
+    somme += moyenneEtudiante;
+
+    if (moyenneEtudiante < moyenneMin.note) {
+      moyenneMin.nom = etudiante.nom;
+      moyenneMin.note = moyenneEtudiante;
+    }
+    if (moyenneEtudiante > moyenneMax.note) {
+      moyenneMax.nom = etudiante.nom;
+      moyenneMax.note = moyenneEtudiante;
+    }
+  }
+  return {
+    meilleure: moyenneMax.nom,
+    moinsBonne: moyenneMin.nom,
+    moyenneGenerale: somme / etudiantes.length,
+  };
 };

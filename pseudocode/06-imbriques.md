@@ -134,6 +134,6 @@ DEBUT resumePromo(etudiantes)
 
     FIN POUR
 
-    RETOURNER {meilleure = moyenneMax.nom, moinsBonne = moyenneMin.nom, moyenne = somme / longueur de etudiantes }
+    RETOURNER {meilleure = moyenneMax.nom, moinsBonne = moyenneMin.nom, moyenneGenerale = somme / longueur de etudiantes }
 FIN
 ```
