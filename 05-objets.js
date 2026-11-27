@@ -21,13 +21,7 @@ export const fullName = (personne) => {
  *          → [{ nom: "Ada", age: 28 }]
  */
 export const filtrerParAge = (personnes, ageMin) => {
-  let ageOk = [];
-  for (const personne of personnes) {
-    if (personne.age >= ageMin) {
-      ageOk.push(personne);
-    }
-  }
-  return ageOk;
+  return personnes.filter((personne) => personne.age >= ageMin);
 };
 
 /**
@@ -58,7 +52,6 @@ export const trierParNom = (personnes) => {
   return personnes;
 };
 
-trierParNom([{ nom: "Turing" }, { nom: "Lovelace" }, { nom: "Hopper" }]);
 /**
  * [FACULTATIF]
  * [FACULTATIF]
@@ -142,9 +135,9 @@ export const prixTotal = (cadeaux) => {
  */
 export const plusCher = (cadeaux) => {
   let cadeauPlusCher = cadeaux[0];
-  for (let i = 1; i < cadeaux.length; i++) {
-    if (cadeaux[i].prix > cadeauPlusCher.prix) {
-      cadeauPlusCher = cadeaux[i];
+  for (const cadeau of cadeaux) {
+    if (cadeau.prix > cadeauPlusCher.prix) {
+      cadeauPlusCher = cadeau;
     }
   }
   return cadeauPlusCher.nom;

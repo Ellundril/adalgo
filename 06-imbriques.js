@@ -13,8 +13,14 @@
  * ]) → ["Ada", "Augusta", "Grace"]
  */
 export const tousLesPrenoms = (personnes) => {
-  // à compléter
-}
+  let listePrenoms = [];
+  for (const personne of personnes) {
+    for (let i = 0; i < personne.prenoms.length; i++) {
+      listePrenoms.push(personne.prenoms[i]);
+    }
+  }
+  return listePrenoms;
+};
 
 /**
  * Reçoit un tableau de { nom, notes } où notes est un tableau de nombres.
@@ -27,9 +33,15 @@ export const tousLesPrenoms = (personnes) => {
  * ]) → [{ nom: "Ada", total: 45 }, { nom: "Grace", total: 24 }]
  */
 export const totalPoints = (etudiantes) => {
-  // à compléter
-}
-
+  const total = etudiantes.map((etudiante) => {
+    let somme = 0;
+    etudiante.notes.forEach((note) => {
+      somme += note;
+    });
+    return { nom: etudiante.nom, total: somme };
+  });
+  return total;
+};
 /**
  * Reçoit un tableau de { nom, competences } où competences est un tableau de strings.
  * Retourne les noms des étudiantes qui ont la compétence demandée.
@@ -43,7 +55,7 @@ export const totalPoints = (etudiantes) => {
  */
 export const aMaitriseCompetence = (etudiantes, competence) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -59,7 +71,7 @@ export const aMaitriseCompetence = (etudiantes, competence) => {
  */
 export const projetsEnRetard = (projets) => {
   // à compléter
-}
+};
 
 /**
  * [FACULTATIF]
@@ -79,4 +91,4 @@ export const projetsEnRetard = (projets) => {
  */
 export const resumePromo = (etudiantes) => {
   // à compléter
-}
+};

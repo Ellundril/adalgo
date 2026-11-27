@@ -63,6 +63,16 @@ describe("trierParNom", () => {
       { nom: "Turing" },
     ]);
   });
+  it("fonctionne avec une seule personne", () => {
+    const personnes = [{ nom: "Turing" }];
+    const result = trierParNom(personnes);
+    expect(result).toEqual([{ nom: "Turing" }]);
+  });
+  it("retourne un tableau vide si personnes est vide au départ", () => {
+    const personnes = [];
+    const result = trierParNom(personnes);
+    expect(result).toEqual([]);
+  });
 });
 
 // [FACULTATIF]
@@ -75,6 +85,15 @@ describe("grouperParVille", () => {
     ];
     const result = grouperParVille(personnes);
     expect(result).toEqual({ Paris: ["Ada", "Grace"], Lyon: ["Alan"] });
+  });
+  it("fonctionne avec une seule ville", () => {
+    const personnes = [
+      { nom: "Ada", ville: "Paris" },
+      { nom: "Alan", ville: "Paris" },
+      { nom: "Grace", ville: "Paris" },
+    ];
+    const result = grouperParVille(personnes);
+    expect(result).toEqual({ Paris: ["Ada", "Alan", "Grace"] });
   });
 });
 
@@ -105,6 +124,11 @@ describe("prixTotal", () => {
     const result = prixTotal(cadeaux);
     expect(result).toBe(55);
   });
+  it("retourne 0 si il n'ya pas de cadeaux", () => {
+    const cadeaux = [];
+    const result = prixTotal(cadeaux);
+    expect(result).toBe(0);
+  });
 });
 
 // [FACULTATIF]
@@ -113,6 +137,15 @@ describe("plusCher", () => {
     const cadeaux = [
       { nom: "livre", prix: 15 },
       { nom: "jeu", prix: 40 },
+    ];
+    const result = plusCher(cadeaux);
+    expect(result).toBe("jeu");
+  });
+  it("si plusieurs cadeaux au même prix et les plus chers retourne le premier cadeau  à ce prix là", () => {
+    const cadeaux = [
+      { nom: "livre", prix: 15 },
+      { nom: "jeu", prix: 40 },
+      { nom: "pull", prix: 40 },
     ];
     const result = plusCher(cadeaux);
     expect(result).toBe("jeu");
