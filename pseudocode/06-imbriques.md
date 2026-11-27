@@ -90,3 +90,40 @@ DEBUT projetsEnRetard(projets)
     FIN_SI
 FIN
 ```
+
+## Exercice 5 - resumePromo(etudiantes)
+
+VARIABLES
+etudiantes = TABLEAU d'OBJETS{nom: CHAINE, notes: TABLEAU d'ENTIERS}
+resume: OBJET{meilleure: CHAINE, moinsBonne: CHAINE, moyenneGenerale: REEL}
+somme<- REEL
+nbNotes <-ENTIER
+max: OBJET{ nom: CHAINE, note:REEL}
+min: OBJET{ nom: CHAINE, note:REEL}
+
+```
+DEBUT resumePromo(etudiantes)
+    min <- {nom: etudiantes[0], note: etudiantes[0].notes[0]}
+
+    max <- {nom: etudiantes[0], note: etudiantes[0].notes[0]}
+
+    somme <- 0
+    nbNotes <- 0
+
+    POUR i<- 0 à longueur de etudiantes -1
+            nbNotes <- nbNotes + longueur de etudiantes[i].notes
+        POUR j<- 0 à longueur de etudiantes[i].notes - 1
+            somme <-  somme + etudiantes[i].notes[j]
+            SI etudiantes[i].notes[j] < min.note ALORS
+                min.nom = etudiantes[i].nom
+                min.note = etudiantes[i].note
+            FIN_SI
+            SI etudiantes[i].notes[j] > max.note ALORS
+                max.nom = etudiantes[i].nom
+                max.note = etudiantes[i].note
+            FIN_SI
+        FIN POUR
+    FIN POUR
+    RETOURNER {meilleure = max.nom, moinsBonne = min.nom, moyenne = somme / nbNotes }
+FIN
+```
