@@ -63,6 +63,16 @@ describe("trierParNom", () => {
       { nom: "Turing" },
     ]);
   });
+  it("fonctionne avec une seule personne", () => {
+    const personnes = [{ nom: "Turing" }];
+    const result = trierParNom(personnes);
+    expect(result).toEqual([{ nom: "Turing" }]);
+  });
+  it("retourne un tableau vide si personnes est vide au départ", () => {
+    const personnes = [];
+    const result = trierParNom(personnes);
+    expect(result).toEqual([]);
+  });
 });
 
 // [FACULTATIF]
