@@ -141,4 +141,13 @@ describe("plusCher", () => {
     const result = plusCher(cadeaux);
     expect(result).toBe("jeu");
   });
+  it("si plusieurs cadeaux au même prix et les plus chers retourne le premier cadeau  à ce prix là", () => {
+    const cadeaux = [
+      { nom: "livre", prix: 15 },
+      { nom: "jeu", prix: 40 },
+      { nom: "pull", prix: 40 },
+    ];
+    const result = plusCher(cadeaux);
+    expect(result).toBe("jeu");
+  });
 });

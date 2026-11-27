@@ -135,9 +135,9 @@ export const prixTotal = (cadeaux) => {
  */
 export const plusCher = (cadeaux) => {
   let cadeauPlusCher = cadeaux[0];
-  for (let i = 1; i < cadeaux.length; i++) {
-    if (cadeaux[i].prix > cadeauPlusCher.prix) {
-      cadeauPlusCher = cadeaux[i];
+  for (const cadeau of cadeaux) {
+    if (cadeau.prix > cadeauPlusCher.prix) {
+      cadeauPlusCher = cadeau;
     }
   }
   return cadeauPlusCher.nom;
