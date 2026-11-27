@@ -65,7 +65,34 @@ describe("totalPoints", () => {
 });
 
 describe("aMaitriseCompetence", () => {
-  it.todo("à compléter");
+  it("retourne la liste des étudiantes qui maîtrisent la compétence demandée", () => {
+    const etudiantes = [
+      { nom: "Ada", competences: ["HTML", "CSS", "JS"] },
+      { nom: "Grace", competences: ["HTML", "Python"] },
+      { nom: "Mary", competences: ["HTML", "CSS", "Python"] },
+    ];
+    const competence = "CSS";
+    const result = aMaitriseCompetence(etudiantes, competence);
+    expect(result).toEqual(["Ada", "Mary"]);
+  });
+  it("retourne aucune étudiante ne possède la compétence si c'est le cas", () => {
+    const etudiantes = [
+      { nom: "Ada", competences: ["HTML", "CSS", "JS"] },
+      { nom: "Grace", competences: ["HTML", "Python"] },
+      { nom: "Mary", competences: ["HTML", "CSS", "Python"] },
+    ];
+    const competence = "PHP";
+    const result = aMaitriseCompetence(etudiantes, competence);
+    expect(result).toBe(
+      "Aucune étudiante ne possède la compétence " + competence,
+    );
+  });
+  it("retourne un tableau vide si pas d'étudiante", () => {
+    const etudiantes = [];
+    const competence = "PHP";
+    const result = aMaitriseCompetence(etudiantes, competence);
+    expect(result).toEqual([]);
+  });
 });
 
 describe("projetsEnRetard", () => {
