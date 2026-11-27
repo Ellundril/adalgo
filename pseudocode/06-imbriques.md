@@ -71,6 +71,9 @@ enRetard: TABLEAU de CHAINE
 
 ```
 DEBUT projetsEnRetard(projets)
+    SI longueur de projets == 0 ALORS
+        RETOURNER projets
+    FIN_SI
     enRetard <- []
     POUR i<-0 à longeur de projets - 1
         POUR j<- 0 à longueur de projets[i].taches
@@ -80,6 +83,10 @@ DEBUT projetsEnRetard(projets)
             FIN_SI
         FIN POUR
     FIN POUR
-    RETOURNER enRetard
+    SI longueur de enRetard == 0 ALORS
+        RETOURNER "Pas de projets en retard"
+    SINON
+        RETOURNER enRetard
+    FIN_SI
 FIN
 ```

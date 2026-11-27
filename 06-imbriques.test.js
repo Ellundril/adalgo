@@ -96,7 +96,39 @@ describe("aMaitriseCompetence", () => {
 });
 
 describe("projetsEnRetard", () => {
-  it.todo("à compléter");
+  it("retourne les projets qui ont au moins une tâche non terminée", () => {
+    const projets = [
+      {
+        nom: "Adapage",
+        taches: [
+          { titre: "HTML", terminee: true },
+          { titre: "CSS", terminee: false },
+        ],
+      },
+      { nom: "AdaQuiz", taches: [{ titre: "JSON", terminee: true }] },
+    ];
+    const result = projetsEnRetard(projets);
+    expect(result).toEqual(["Adapage"]);
+  });
+  it("retourne un tableau vide si pas de projets", () => {
+    const projets = [];
+    const result = projetsEnRetard(projets);
+    expect(result).toEqual([]);
+  });
+  it("retourne pas de projets en retard si ils sont tous à jour", () => {
+    const projets = [
+      {
+        nom: "Adapage",
+        taches: [
+          { titre: "HTML", terminee: true },
+          { titre: "CSS", terminee: true },
+        ],
+      },
+      { nom: "AdaQuiz", taches: [{ titre: "JSON", terminee: true }] },
+    ];
+    const result = projetsEnRetard(projets);
+    expect(result).toBe("Pas de projets en retard");
+  });
 });
 
 describe("resumePromo", () => {
