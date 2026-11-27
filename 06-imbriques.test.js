@@ -96,9 +96,58 @@ describe("aMaitriseCompetence", () => {
 });
 
 describe("projetsEnRetard", () => {
-  it.todo("à compléter");
+  it("retourne les projets qui ont au moins une tâche non terminée", () => {
+    const projets = [
+      {
+        nom: "Adapage",
+        taches: [
+          { titre: "HTML", terminee: true },
+          { titre: "CSS", terminee: false },
+        ],
+      },
+      { nom: "AdaQuiz", taches: [{ titre: "JSON", terminee: true }] },
+    ];
+    const result = projetsEnRetard(projets);
+    expect(result).toEqual(["Adapage"]);
+  });
+  it("retourne un tableau vide si pas de projets", () => {
+    const projets = [];
+    const result = projetsEnRetard(projets);
+    expect(result).toEqual([]);
+  });
+  it("retourne pas de projets en retard si ils sont tous à jour", () => {
+    const projets = [
+      {
+        nom: "Adapage",
+        taches: [
+          { titre: "HTML", terminee: true },
+          { titre: "CSS", terminee: true },
+        ],
+      },
+      { nom: "AdaQuiz", taches: [{ titre: "JSON", terminee: true }] },
+    ];
+    const result = projetsEnRetard(projets);
+    expect(result).toBe("Pas de projets en retard");
+  });
 });
 
 describe("resumePromo", () => {
-  it.todo("à compléter");
+  it("retourne un objet avec le nom de l'étudiante qui a la meilleure note, le nom de celle qui a la moins bonne et la moyenne des étudiantes", () => {
+    const etudiantes = [
+      { nom: "Ada", notes: [18, 16, 20] },
+      { nom: "Grace", notes: [12, 14, 10] },
+      { nom: "Alan", notes: [15, 15, 15] },
+    ];
+    const result = resumePromo(etudiantes);
+    expect(result).toEqual({
+      meilleure: "Ada",
+      moinsBonne: "Grace",
+      moyenneGenerale: 15,
+    });
+  });
+  it("retourne pas d'étudiantes si le tableau est vide", () => {
+    const etudiantes = [];
+    const result = resumePromo(etudiantes);
+    expect(result).toBe("Pas d'étudiantes");
+  });
 });

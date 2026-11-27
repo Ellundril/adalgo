@@ -82,7 +82,25 @@ export const aMaitriseCompetence = (etudiantes, competence) => {
  * ]) → ["Adapage"]
  */
 export const projetsEnRetard = (projets) => {
-  // à compléter
+  if (projets.length === 0) {
+    return projets;
+  }
+
+  let enRetard = [];
+  for (const projet of projets) {
+    for (const tache of projet.taches) {
+      if (!tache.terminee) {
+        enRetard.push(projet.nom);
+        break;
+      }
+    }
+  }
+
+  if (enRetard.length === 0) {
+    return "Pas de projets en retard";
+  } else {
+    return enRetard;
+  }
 };
 
 /**
@@ -102,5 +120,35 @@ export const projetsEnRetard = (projets) => {
  * ]) → { meilleure: "Ada", moinsBonne: "Grace", moyenneGenerale: 15 }
  */
 export const resumePromo = (etudiantes) => {
-  // à compléter
+  if (etudiantes.length === 0) {
+    return "Pas d'étudiantes";
+  }
+  let moyenneMin = { note: 20 };
+  let moyenneMax = { note: 0 };
+  let moyenneEtudiante = 0;
+  let sommeEtudiante = 0;
+  let somme = 0;
+
+  for (const etudiante of etudiantes) {
+    sommeEtudiante = 0;
+    for (const note of etudiante.notes) {
+      sommeEtudiante += note;
+    }
+    moyenneEtudiante = sommeEtudiante / etudiante.notes.length;
+    somme += moyenneEtudiante;
+
+    if (moyenneEtudiante < moyenneMin.note) {
+      moyenneMin.nom = etudiante.nom;
+      moyenneMin.note = moyenneEtudiante;
+    }
+    if (moyenneEtudiante > moyenneMax.note) {
+      moyenneMax.nom = etudiante.nom;
+      moyenneMax.note = moyenneEtudiante;
+    }
+  }
+  return {
+    meilleure: moyenneMax.nom,
+    moinsBonne: moyenneMin.nom,
+    moyenneGenerale: somme / etudiantes.length,
+  };
 };
