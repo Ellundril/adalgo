@@ -132,5 +132,22 @@ describe("projetsEnRetard", () => {
 });
 
 describe("resumePromo", () => {
-  it.todo("à compléter");
+  it("retourne un objet avec le nom de l'étudiante qui a la meilleure note, le nom de celle qui a la moins bonne et la moyenne des étudiantes", () => {
+    const etudiantes = [
+      { nom: "Ada", notes: [18, 16, 20] },
+      { nom: "Grace", notes: [12, 14, 10] },
+      { nom: "Alan", notes: [15, 15, 15] },
+    ];
+    const result = resumePromo(etudiantes);
+    expect(result).toEqual({
+      meilleure: "Ada",
+      moinsBonne: "Grace",
+      moyenneGenerale: 15,
+    });
+  });
+  it("retourne pas d'étudiantes si le tableau est vide", () => {
+    const etudiantes = [];
+    const result = resumePromo(etudiantes);
+    expect(result).toBe("Pas d'étudiantes");
+  });
 });
