@@ -35,7 +35,33 @@ describe("tousLesPrenoms", () => {
 });
 
 describe("totalPoints", () => {
-  it.todo("à compléter");
+  it("retourne un tableau d'objet avec le nom de chaque étudiante et son total de points", () => {
+    const etudiantes = [
+      { nom: "Ada", notes: [12, 15, 18] },
+      { nom: "Grace", notes: [10, 14] },
+    ];
+    const result = totalPoints(etudiantes);
+    expect(result).toEqual([
+      { nom: "Ada", total: 45 },
+      { nom: "Grace", total: 24 },
+    ]);
+  });
+  it("retourne un tableau vide si pas d'étudiante", () => {
+    const etudiantes = [];
+    const result = totalPoints(etudiantes);
+    expect(result).toEqual([]);
+  });
+  it("fonctionne si les étudiantes ont une seule note", () => {
+    const etudiantes = [
+      { nom: "Ada", notes: [12] },
+      { nom: "Grace", notes: [10] },
+    ];
+    const result = totalPoints(etudiantes);
+    expect(result).toEqual([
+      { nom: "Ada", total: 12 },
+      { nom: "Grace", total: 10 },
+    ]);
+  });
 });
 
 describe("aMaitriseCompetence", () => {
