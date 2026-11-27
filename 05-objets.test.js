@@ -124,6 +124,11 @@ describe("prixTotal", () => {
     const result = prixTotal(cadeaux);
     expect(result).toBe(55);
   });
+  it("retourne 0 si il n'ya pas de cadeaux", () => {
+    const cadeaux = [];
+    const result = prixTotal(cadeaux);
+    expect(result).toBe(0);
+  });
 });
 
 // [FACULTATIF]
